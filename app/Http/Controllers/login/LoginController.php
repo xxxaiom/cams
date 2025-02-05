@@ -80,21 +80,21 @@ class LoginController extends Controller
         try {
             $request->validate([
                 'firstname' => ['required', 'string', 'max:50'],
-                'middlename' => ['required', 'string', 'max:50'],
+                'middlename' => ['nullable', 'string', 'max:50'],
                 'lastname' => ['required', 'string', 'max:50'],
                 'gender' => ['required'],
                 'birthdate' => ['required', 'date', 'before:today'],
                 'number' => ['required', 'string', 'max:11', 'min:11'],
                 'civil_status' => ['required'],
                 'address' => ['required', 'string', 'max:100'],
-                'username' => ['required', 'string', 'max:50', 'unique:users'],
-                'password' => ['required', 'string', 'max:50', 'confirmed'],
+                'uname' => ['required', 'string', 'max:50', 'unique:users,username'],
+                'pword' => ['required', 'min:8', 'confirmed'],
             ]);
 
 
             $cred = [
-                'username' => $request->username,
-                'password' => Hash::make($request->password),
+                'username' => $request->uname,
+                'password' => Hash::make($request->pword),
                 'role' => 'user'
             ];
 

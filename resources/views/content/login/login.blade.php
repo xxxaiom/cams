@@ -78,134 +78,183 @@
 
     <!-- /User Create Modal -->
 
-    <div class="modal fade" id="register_user" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Register User</h5>
-                    <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+    <form id="registerCitizenInfo" method="post">
+        @csrf
+        <div class="modal fade" id="register_user" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Register User</h5>
+                        <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <small class="modal-title" id="register_message" style="width: 50%"></small>
+
+                    <form id="register_form">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="mb-3 col-md-4">
+                                    <label for="email" class="form-label">firstname</label>
+                                    <div class="input-group input-group-merge">
+                                        <span class="input-group-text"><i class="bx bx-user"></i></span>
+                                        <input type="text" class="form-control" id="firstname" name="firstname"
+                                            placeholder="John Paul">
+                                    </div>
+                                </div>
+                                <div class="mb-3 col-md-4">
+                                    <label for="email" class="form-label">middlename</label>
+                                    <div class="input-group input-group-merge">
+                                        <span class="input-group-text"><i class="bx bx-user"></i></span>
+                                        <input type="text" class="form-control" id="middlename" name="middlename"
+                                            placeholder="Rodulf">
+                                    </div>
+                                </div>
+                                <div class="mb-3 col-md-4">
+                                    <label for="email" class="form-label">lastname</label>
+                                    <div class="input-group input-group-merge">
+                                        <span class="input-group-text"><i class="bx bx-user"></i></span>
+                                        <input type="text" class="form-control" id="lastname" name="lastname"
+                                            placeholder="Alboracin">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="mb-3 col-md-4">
+                                    <label for="email" class="form-label">gender</label>
+                                    <select class="form-select" aria-label="Default select example" id="gender"
+                                        name="gender">
+                                        <option selected>Select a gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Secret">Secret</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3 col-md-4">
+                                    <label for="email" class="form-label">birthdate</label>
+                                    <input type="date" class="form-control" id="birthdate" name="birthdate"
+                                        placeholder="Enter your username">
+                                </div>
+                                <div class="mb-3 col-md-4">
+                                    <label for="email" class="form-label">civil status</label>
+                                    <select class="form-select" aria-label="Default select example" id="civil_status"
+                                        name="civil_status">
+                                        <option selected>Select a civil status</option>
+                                        <option value="Single">Single</option>
+                                        <option value="Married">Married</option>
+                                        <option value="Married">Married</option>
+                                        <option value="Divorced">Divorced</option>
+                                        <option value="Widowed">Widowed</option>
+                                    </select>
+                                </div>
+                                <!-- <div class="mb-3 col-md-8">
+                                    <div class="d-flex justify-content-between">
+                                        <label for="email" class="form-label">address</label>
+                                        <small>ex: Street, Barangay, City</small>
+                                    </div>
+                                    <input type="text" class="form-control" id="address" name="address"
+                                        placeholder="Enter your full address">
+                                </div> -->
+                            </div>
+                            
+                            <div class="row">
+                                <div class="mb-3 col-md-4">
+                                    <label for="email" class="form-label">contact number</label>
+                                    <div class="input-group input-group-merge">
+                                        <span class="input-group-text"><i class="bx bx-phone"></i></span>
+                                        <input type="tel" class="form-control" id="number" name="number"
+                                            placeholder="09123456789">
+                                    </div>
+                                </div>
+                                <div class="mb-3 col-md-4">
+                                    <label for="email" class="form-label">email</label>
+                                    <div class="input-group input-group-merge">
+                                        <span class="input-group-text"><i class="bx bx-message-square"></i></span>
+                                        <input type="tel" class="form-control" id="number" name="number"
+                                            placeholder="johnpaul@gmail.com">
+                                    </div>
+                                </div>
+                                <!-- <div class="mb-3 col-md-8">
+                                    <div class="d-flex justify-content-between">
+                                        <label for="email" class="form-label">address</label>
+                                        <small>ex: Street, Barangay, City</small>
+                                    </div>
+                                    <input type="text" class="form-control" id="address" name="address"
+                                        placeholder="Enter your full address">
+                                </div> -->
+                            </div>
+
+                            <hr class="mb-4" />
+
+                            <div class="row">
+
+                                <div class="mb-3 col-md-4">
+                                    <label for="email" class="form-label">province</label>
+                                    <select class="form-select" aria-label="Default select example" id="civil_status"
+                                        name="civil_status">
+                                        <option selected>Select a province</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3 col-md-4">
+                                    <label for="email" class="form-label">municipality</label>
+                                    <select class="form-select" aria-label="Default select example" id="civil_status"
+                                        name="civil_status">
+                                        <option selected>Select a municipality</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3 col-md-4">
+                                    <label for="email" class="form-label">baranggay</label>
+                                    <select class="form-select" aria-label="Default select example" id="civil_status"
+                                        name="civil_status">
+                                        <option selected>Select a baranggay</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <hr class="mb-4" />
+
+                            <div class="row">
+                                <div class="mb-3 col-md-4">
+                                    <label for="username" class="form-label">username</label>
+                                    <div class="input-group input-group-merge">
+                                        <span class="input-group-text"><i class='bx bxs-user-account'></i></span>
+                                        <input type="text" class="form-control" id="uname" name="uname"
+                                            placeholder="Enter a username">
+                                    </div>
+                                </div>
+                                <div class="mb-3 col-md-4">
+                                    <label for="password" class="form-label">password</label>
+                                    <div class="input-group input-group-merge">
+                                        <input type="password" id="pword" class="form-control" name="pword"
+                                            placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                            aria-describedby="password" />
+                                        <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 col-md-4">
+                                    <label for="pword_confirmation" class="form-label">Confirm Password</label>
+                                    <div class="input-group input-group-merge">
+                                        <input type="password" id="pword_confirmation" class="form-control"
+                                            name="pword_confirmation"
+                                            placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                            aria-describedby="password" />
+                                        <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary close-btn" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" id="loginuser" class="btn btn-primary">Register</button>
+                        </div>
+                    </form>
                 </div>
-                <small class="modal-title" id="register_message" style="width: 50%"></small>
-                <form id="register_form">
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="mb-3 col-md-4">
-                                <label for="email" class="form-label">firstname</label>
-                                <div class="input-group input-group-merge">
-                                    <span class="input-group-text"><i class="bx bx-user"></i></span>
-                                    <input type="text" class="form-control" id="firstname" name="firstname"
-                                        placeholder="John Paul">
-                                </div>
-                            </div>
-                            <div class="mb-3 col-md-4">
-                                <label for="email" class="form-label">middlename</label>
-                                <div class="input-group input-group-merge">
-                                    <span class="input-group-text"><i class="bx bx-user"></i></span>
-                                    <input type="text" class="form-control" id="middlename" name="middlename"
-                                        placeholder="Rodulf">
-                                </div>
-                            </div>
-                            <div class="mb-3 col-md-4">
-                                <label for="email" class="form-label">lastname</label>
-                                <div class="input-group input-group-merge">
-                                    <span class="input-group-text"><i class="bx bx-user"></i></span>
-                                    <input type="text" class="form-control" id="lastname" name="lastname"
-                                        placeholder="Alboracin">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="mb-3 col-md-4">
-                                <label for="email" class="form-label">gender</label>
-                                <select class="form-select" aria-label="Default select example" id="gender"
-                                    name="gender">
-                                    <option selected>Select a gender</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                    <option value="Secret">Secret</option>
-                                </select>
-                            </div>
-                            <div class="mb-3 col-md-4">
-                                <label for="email" class="form-label">birthdate</label>
-                                <input type="date" class="form-control" id="birthdate" name="birthdate"
-                                    placeholder="Enter your username">
-                            </div>
-                            <div class="mb-3 col-md-4">
-                                <label for="email" class="form-label">contact number</label>
-                                <div class="input-group input-group-merge">
-                                    <span class="input-group-text"><i class="bx bx-phone"></i></span>
-                                    <input type="tel" class="form-control" id="number" name="number"
-                                        placeholder="09123456789">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="mb-3 col-md-4">
-                                <label for="email" class="form-label">civil status</label>
-                                <select class="form-select" aria-label="Default select example" id="civil_status"
-                                    name="civil_status">
-                                    <option selected>Select a civil status</option>
-                                    <option value="Single">Single</option>
-                                    <option value="Married">Married</option>
-                                    <option value="Married">Married</option>
-                                    <option value="Divorced">Divorced</option>
-                                    <option value="Widowed">Widowed</option>
-                                </select>
-                            </div>
-                            <div class="mb-3 col-md-8">
-                                <div class="d-flex justify-content-between">
-                                    <label for="email" class="form-label">address</label>
-                                    <small>ex: Street, Barangay, City</small>
-                                </div>
-                                <input type="text" class="form-control" id="address" name="address"
-                                    placeholder="Enter your full address">
-                            </div>
-                        </div>
-
-                        <hr class="mb-4" />
-
-                        <div class="row">
-                            <div class="mb-3 col-md-4">
-                                <label for="username" class="form-label">username</label>
-                                <div class="input-group input-group-merge">
-                                    <span class="input-group-text"><i class='bx bxs-user-account'></i></span>
-                                    <input type="text" class="form-control" id="username" name="username"
-                                        placeholder="Enter a username">
-                                </div>
-                            </div>
-                            <div class="mb-3 col-md-4">
-                                <label for="password" class="form-label">password</label>
-                                <div class="input-group input-group-merge">
-                                    <input type="password" id="password" class="form-control" name="password"
-                                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                        aria-describedby="password" />
-                                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-                                </div>
-                            </div>
-                            <div class="mb-3 col-md-4">
-                                <label for="password_confirmation" class="form-label">Confirm Password</label>
-                                <div class="input-group input-group-merge">
-                                    <input type="password" id="password_confirmation" class="form-control"
-                                        name="password_confirmation"
-                                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                        aria-describedby="password" />
-                                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary close-btn" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Register</button>
-                    </div>
-                </form>
             </div>
         </div>
-    </div>
-
+    </form>
 
 @endsection
 
