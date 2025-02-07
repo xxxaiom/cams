@@ -8,7 +8,7 @@
 /vendor
 
 # .env
-.env.backup
+.env
 .env.production
 .phpunit.result.cache
 
