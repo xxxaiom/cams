@@ -43,7 +43,7 @@
                                         <input type="password" id="password" class="form-control" name="password"
                                             placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                             aria-describedby="password" />
-                                        <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                                        <span class="input-group-text cursor-pointer" onclick="showPassword()" id="showpass"><i class="bx bx-hide"></i></span>
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -148,14 +148,7 @@
                                         <option value="Widowed">Widowed</option>
                                     </select>
                                 </div>
-                                <!-- <div class="mb-3 col-md-8">
-                                    <div class="d-flex justify-content-between">
-                                        <label for="email" class="form-label">address</label>
-                                        <small>ex: Street, Barangay, City</small>
-                                    </div>
-                                    <input type="text" class="form-control" id="address" name="address"
-                                        placeholder="Enter your full address">
-                                </div> -->
+
                             </div>
                             
                             <div class="row">
@@ -167,22 +160,15 @@
                                             placeholder="09123456789">
                                     </div>
                                 </div>
-                                <div class="mb-3 col-md-4">
+                                <div class="mb-3 col-md-8">
                                     <label for="email" class="form-label">email</label>
                                     <div class="input-group input-group-merge">
                                         <span class="input-group-text"><i class="bx bx-message-square"></i></span>
-                                        <input type="tel" class="form-control" id="number" name="number"
+                                        <input type="tel" class="form-control" id="email" name="email"
                                             placeholder="johnpaul@gmail.com">
                                     </div>
                                 </div>
-                                <!-- <div class="mb-3 col-md-8">
-                                    <div class="d-flex justify-content-between">
-                                        <label for="email" class="form-label">address</label>
-                                        <small>ex: Street, Barangay, City</small>
-                                    </div>
-                                    <input type="text" class="form-control" id="address" name="address"
-                                        placeholder="Enter your full address">
-                                </div> -->
+
                             </div>
 
                             <hr class="mb-4" />
@@ -190,25 +176,25 @@
                             <div class="row">
 
                                 <div class="mb-3 col-md-4">
-                                    <label for="email" class="form-label">province</label>
-                                    <select class="form-select" aria-label="Default select example" id="civil_status"
-                                        name="civil_status">
+                                    <label for="prov" class="form-label">province</label>
+                                    <select class="form-select" aria-label="Default select example" id="prov"
+                                        name="prov">
                                         <option selected>Select a province</option>
                                     </select>
                                 </div>
 
                                 <div class="mb-3 col-md-4">
-                                    <label for="email" class="form-label">municipality</label>
-                                    <select class="form-select" aria-label="Default select example" id="civil_status"
-                                        name="civil_status">
+                                    <label for="municity" class="form-label">municipality</label>
+                                    <select class="form-select" aria-label="Default select example" id="municity"
+                                        name="municity">
                                         <option selected>Select a municipality</option>
                                     </select>
                                 </div>
 
                                 <div class="mb-3 col-md-4">
-                                    <label for="email" class="form-label">baranggay</label>
-                                    <select class="form-select" aria-label="Default select example" id="civil_status"
-                                        name="civil_status">
+                                    <label for="bgy" class="form-label">baranggay</label>
+                                    <select class="form-select" aria-label="Default select example" id="bgy"
+                                        name="bgy">
                                         <option selected>Select a baranggay</option>
                                     </select>
                                 </div>
@@ -231,7 +217,7 @@
                                         <input type="password" id="pword" class="form-control" name="pword"
                                             placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                             aria-describedby="password" />
-                                        <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                                        <span class="input-group-text cursor-pointer" onclick="showPassword()" id="showpass1"><i class="bx bx-hide"></i></span>
                                     </div>
                                 </div>
                                 <div class="mb-3 col-md-4">
@@ -262,5 +248,6 @@
     <script>
         const userRole = '{{ Session::get('user_role') }}';
     </script>
+    <script src="{{ asset('storage/js/login/provmunbgy.js?id=' . Illuminate\Support\Carbon::now() . '') }}"></script>
     <script src="{{ asset('storage/js/login/login.js?id=' . Illuminate\Support\Carbon::now() . '') }}"></script>
 @endsection

@@ -85,8 +85,11 @@ class LoginController extends Controller
                 'gender' => ['required'],
                 'birthdate' => ['required', 'date', 'before:today'],
                 'number' => ['required', 'string', 'max:11', 'min:11'],
+                'email' => ['required', 'email', 'max:50', 'unique:users,email', 'regex:/^[a-zA-Z0-9._%+-]+@(gmail|yahoo)\.com$/'],
                 'civil_status' => ['required'],
-                'address' => ['required', 'string', 'max:100'],
+                'prov' => ['required'],
+                'municity' => ['required'],
+                'bgy' => ['required'],
                 'uname' => ['required', 'string', 'max:50', 'unique:users,username'],
                 'pword' => ['required', 'min:8', 'confirmed'],
             ]);
@@ -95,6 +98,7 @@ class LoginController extends Controller
             $cred = [
                 'username' => $request->uname,
                 'password' => Hash::make($request->pword),
+                'email' => $request->email,
                 'role' => 'user'
             ];
 
@@ -110,7 +114,9 @@ class LoginController extends Controller
                     'birthdate' => $request->birthdate,
                     'number' => $request->number,
                     'civil_status' => $request->civil_status,
-                    'address' => $request->address,
+                    'prov' => $request->prov,
+                    'municity' => $request->municity,
+                    'bgy' => $request->bgy,
                     'account_id' => $id
                 ];
 
